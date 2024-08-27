@@ -2,23 +2,18 @@ import { FaRegHeart } from "react-icons/fa6";
 import { FiSend } from "react-icons/fi";
 import { RiChat3Line } from "react-icons/ri";
 import { FaRegBookmark } from "react-icons/fa6";
-import Avatar from "./avatar";
+import Avatar from "../avatar";
 
-export function Post() {
+export function Post({ data }) {
   return (
-    <div className="my-10 flex flex-col mx-80 gap-y-5 w-fit items-center border-b-gray-500">
+    <div className="my-10 flex flex-col mx-80 gap-y-5 items-center border-b-gray-500">
       <Avatar />
-      <div className="flex flex-col gap-x-2 items-start w-[40%]">
+      <div className="flex flex-col gap-x-2 items-start w-[50%]">
         <div className="flex items-center gap-x-2">
           <h1 className="font-medium">Acme Inc</h1>
           <p className="text-gray-500 text-sm">@acmeinc . 2h</p>
         </div>
-        <p className="text-gray-500 line-clamp-1 text-sm">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </p>
+        <p className="text-gray-500 line-clamp-1 text-sm">{data.content}</p>
       </div>
       <img
         src="https://placehold.co/800x450"

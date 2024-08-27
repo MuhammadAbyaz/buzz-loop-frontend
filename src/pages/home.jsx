@@ -1,11 +1,18 @@
-import { Post } from "../components/post";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getPosts } from "../utils/api-calls";
+import { PostList } from "../components/posts/postList";
 export function Home() {
-  const posts = Array(10).fill(0);
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    (async () => {
+      setPosts(await getPosts());
+    })();
+  }, []);
+
   return (
     <>
-      {posts.map((post, id) => {
-        return <Post key={id} />;
-      })}
+      <PostList posts={posts} />
     </>
   );
 }
